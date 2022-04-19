@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
 
-    render json: @projects
+    render json: @projects, include: ['tasks']
   end
 
   def tasks
