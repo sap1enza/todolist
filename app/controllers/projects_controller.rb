@@ -1,16 +1,10 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[tasks update destroy]
+  before_action :set_project, only: %i[show tasks update destroy]
 
   def index
     @projects = Project.all
 
-    render json: @projects, include: ['tasks']
-  end
-
-  def tasks
-    @tasks = @project.tasks
-
-    render json: @tasks
+    render json: @projects
   end
 
   def show
